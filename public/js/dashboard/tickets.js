@@ -95,4 +95,6 @@ async function displayTicketsInList(){
         console.log(ticket)
         getTicketListElement().appendChild(ticketElement);
     }
+
+    setTicketListSubTitle(`${tickets?.length ?? "0"} Tickets`);
 }
