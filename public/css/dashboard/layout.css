@@ -1,0 +1,32 @@
+.layout.admin {
+    display: flex;
+    flex-direction: row;
+
+    width: 100%;
+    height: 100%;
+}
+
+.layout.admin > .navigation.admin{
+    display: flex;
+    flex-direction: column;
+
+    min-width: 250px;
+    width: fit-content;
+    height: 100%;
+
+    padding: 1rem;
+}
+
+.layout.admin > .navigation > .header > h1.text{
+    margin: 0;
+    font-size: 24px;
+}
+
+.layout.admin > .list.admin {
+    display: flex;
+    flex-direction: column;
+
+    min-width: 350px;
+    width: fit-content;
+    height: 100%;
+}

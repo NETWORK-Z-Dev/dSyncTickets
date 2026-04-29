@@ -1,0 +1,16 @@
+{
+  "name": "@hackthedev/dsync-tickets",
+  "version": "1.0.0",
+  "description": "",
+  "license": "UNLICENSED",
+  "author": "",
+  "type": "commonjs",
+  "main": "index.mjs",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "@hackthedev/express-starter": "^1.0.6",
+    "@hackthedev/frontend-libs": "^1.0.5"
+  }
+}

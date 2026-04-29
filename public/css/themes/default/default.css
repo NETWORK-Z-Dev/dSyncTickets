@@ -1,0 +1,51 @@
+:root {
+    /* new default: #131415; */
+    /* red: #2e1313;*/
+    /* green: #171e08;*/
+    /* cyan: #012724;*/
+    /* purple: #1d1635;*/
+    --main: #111417;
+    --accent: skyblue;
+    --border-color: hsl(from var(--main) h s calc(l * 8) / 20%);
+    --border-color-bright: hsl(from var(--main) h s calc(l * 8) / 60%);
+}
+
+html,
+body {
+    background-color: hsl(from var(--main) h s calc(l * 1));
+    color: hsl(from var(--main) h s calc(l * 10));
+}
+
+*{
+    scrollbar-color: hsl(from var(--main) h s calc(l * 8)) transparent;
+}
+
+.layout > .header{
+    border-bottom: 1.5px solid var(--border-color);
+    background-color: hsl(from var(--main) h s calc(l * 1.5));
+}
+
+.layout.admin > .navigation.admin{
+    background-color: hsl(from var(--main) h s calc(l * 1.25));
+}
+
+.layout.admin > .list.admin {
+    border-right: 1px solid var(--border-color);
+    border-left: 1px solid var(--border-color);
+    background-color: hsl(from var(--main) h s calc(l * 1.5));
+}
+.layout.admin > .list.admin > .header {
+    border-bottom: 1.5px solid var(--border-color);
+}
+
+.layout > .navigation.admin > .general-menu > a:hover,
+.layout > .navigation.admin > .admin-menu > a:hover{
+    background-color: hsl(from var(--main) h s calc(l * 8) / 40%);
+    color: hsl(from var(--main) h s calc(l * 10));
+}
+.layout > .navigation.admin > .general-menu > a.active,
+.layout > .navigation.admin > .admin-menu > a.active{
+    border-left: 4px solid hsl(from var(--main) h s calc(l * 8));
+    background-color: hsl(from var(--main) h s calc(l * 8) / 40%);
+    color: hsl(from var(--main) h s calc(l * 10));
+}

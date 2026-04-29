@@ -1,0 +1,53 @@
+.layout > .navigation.admin > .user-info{
+    display: flex;
+    flex-direction: column;
+
+    border-top: 1.5px solid var(--border-color);
+    border-bottom: 1.5px solid var(--border-color);
+
+    margin: 1rem -1rem 0 -1rem;
+    padding:1rem;
+}
+.layout > .navigation.admin > .user-info > h1.name{
+    margin: 0;
+    font-size: 20px;
+}
+.layout > .navigation.admin > .user-info > h2.department{
+    margin: 0;
+    font-size: 16px;
+}
+
+.layout > .navigation.admin > .header > h1.text{
+    margin: 0;
+}
+
+.layout > .navigation.admin > .general-menu,
+.layout > .navigation.admin > .admin-menu {
+    display: flex;
+    flex-direction: column;
+    margin: 1rem -1rem 1rem -1rem;
+}
+.layout > .navigation.admin > .general-menu > a,
+.layout > .navigation.admin > .admin-menu > a{
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+
+    padding: 10px 20px;
+    padding-left: 24px;
+
+    font-size: 14px;
+    user-select: none;
+    cursor: pointer;
+}
+
+.layout > .navigation.admin > .general-menu > a.active,
+.layout > .navigation.admin > .admin-menu > a.active{
+    padding-left: 20px;
+}
+
+.layout > .navigation.admin > .general-menu > a > svg,
+.layout > .navigation.admin > .admin-menu > a > svg{
+    width: 16px;
+    height: 16px;
+}

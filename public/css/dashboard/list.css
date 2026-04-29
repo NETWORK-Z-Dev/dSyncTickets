@@ -1,0 +1,17 @@
+.layout.admin > .list.admin > .header {
+    padding: 1rem;
+}
+.layout.admin > .list.admin > .header > h1.title{
+    margin: 0;
+    font-size: 18px;
+}
+.layout.admin > .list.admin > .header > h2.subtitle{
+    margin: 0;
+    font-size: 14px;
+    font-weight: normal;
+}
+.layout.admin > .list.admin > .header > input.search{
+    margin: 1rem 0 0.5rem 0;
+    padding: 0.5rem;
+    width: 100%;
+}
