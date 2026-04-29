@@ -40,12 +40,32 @@ body {
 
 .layout > .navigation.admin > .general-menu > a:hover,
 .layout > .navigation.admin > .admin-menu > a:hover{
-    background-color: hsl(from var(--main) h s calc(l * 8) / 40%);
+    background-color: hsl(from var(--accent) h s calc(l * 1.25) / 40%);
     color: hsl(from var(--main) h s calc(l * 10));
 }
 .layout > .navigation.admin > .general-menu > a.active,
 .layout > .navigation.admin > .admin-menu > a.active{
-    border-left: 4px solid hsl(from var(--main) h s calc(l * 8));
-    background-color: hsl(from var(--main) h s calc(l * 8) / 40%);
+    border-left: 4px solid hsl(from var(--accent) h s calc(l * 1));
+    background-color: hsl(from var(--accent) h s calc(l * 1) / 40%);
     color: hsl(from var(--main) h s calc(l * 10));
+}
+
+.layout.admin > .list.admin > .entries > .ticket{
+    background-color: hsl(from var(--main) h s calc(l * 2) / 75%);
+}
+
+.layout.admin > .list.admin > .entries > .ticket > .content > p.meta > span.timestamp{
+    color: hsl(from var(--main) h s calc(l * 4.5))
+}
+
+.layout.admin > .list.admin > .entries > .ticket.unread{
+    border-left: 6px solid hsl(from var(--accent) h s calc(l * 1));
+    background-color: hsl(from var(--accent) h s calc(l * 1) / 20%);
+}
+
+.layout.admin > .list.admin > .entries > .ticket:hover{
+    background-color: hsl(from var(--accent) h s calc(l * 1.25) / 20%);
+}
+.layout.admin > .list.admin > .entries > .ticket.unread:hover{
+    background-color: hsl(from var(--accent) h s calc(l * 1.25) / 20%);
 }

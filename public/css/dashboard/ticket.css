@@ -1,0 +1,58 @@
+.layout.admin > .list.admin > .entries{
+    display: flex;
+    flex-direction: column;
+
+    gap: 4px;
+}
+
+.layout.admin > .list.admin > .entries > .ticket{
+    display: flex;
+    flex-direction: row;
+
+    gap: 0.5rem;
+
+    width: 100%;
+    height: fit-content;
+    padding: 0.5rem;
+    cursor: pointer;
+    user-select: none;
+}
+.layout.admin > .list.admin > .entries > .ticket > .icon{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 40px;
+    height: 40px;
+
+    background-color: black;
+    color: white;
+
+    border-radius: 50%;
+    text-align: center;
+    font-size: 12px;
+
+    user-select: none;
+}
+.layout.admin > .list.admin > .entries > .ticket > .content{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+
+    gap: 0.5rem;
+    padding: 4px;
+    font-size: 14px;
+}
+.layout.admin > .list.admin > .entries > .ticket > .content > p{
+    margin: 0;
+}
+.layout.admin > .list.admin > .entries > .ticket > .content > p.meta {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+}
+.layout.admin > .list.admin > .entries > .ticket > .content > p.meta > span.timestamp{
+    display: flex;
+    justify-content: end;
+    margin-left: auto;
+}
