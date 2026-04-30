@@ -86,7 +86,7 @@ async function displayTicketsInList(){
     let tickets = [
         {
             id: 12334,
-            title: "Outlook Password zurücksetzen",
+            title: "Reset Email Password",
             creator: {
                 id: 123456789012,
                 first_name: "Max",
@@ -103,7 +103,7 @@ async function displayTicketsInList(){
         },
         {
             id: 67890,
-            title: "Server startet nicht mehr",
+            title: "Account Login not working",
             creator: {
                 id: 123456789013,
                 first_name: "Oompa",

@@ -24,28 +24,28 @@ async function displayAdminMenu(){
         },
         {
             icon: "server",
-            text: "Meine Tickets",
+            text: "My Tickets",
             callback: async () => {
                 console.log("load tickets here")
             }
         },
         {
             icon: "server",
-            text: "Nicht-zugewiesene Tickets",
+            text: "Un-assigned Tickets",
             callback: async () => {
                 console.log("load tickets here")
             }
         },
         {
             icon: "server",
-            text: "Dringende Tickets",
+            text: "Important Tickets",
             callback: async () => {
                 console.log("load tickets here")
             }
         },
         {
             icon: "server",
-            text: "Statistik",
+            text: "Statistic",
             callback: async () => {
                 console.log("load tickets here")
             }

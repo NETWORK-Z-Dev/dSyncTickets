@@ -80,3 +80,6 @@ body {
 .layout.admin > .page-content.admin > .ticket-container > .header > .info >  p span.owner{
     color: hsl(from var(--main) h s calc(l * 10));
 }
+.layout.admin > .page-content.admin > .ticket-container > .header {
+    background-color: hsl(from var(--main) h s calc(l * 1.25));
+}
