@@ -77,6 +77,23 @@ async function displayTicket(ticket){
             </div>
         </div>
         `
+
+
+    const editor = new RichEditor({
+        selector: ".layout.admin > .page-content.admin > .ticket-container > .ticket-footer > .editor",
+        toolbar: [
+            ["bold", "italic", "underline", "strike"],
+            ["clean", "link", "image", "video"],
+            ["code", "code-block", "blockquote"]
+        ],
+        onImg: async (src) => {
+
+        },
+        onSend: async (html) => {
+            console.log("sending ", html)
+        }
+    });
+
 }
 
 

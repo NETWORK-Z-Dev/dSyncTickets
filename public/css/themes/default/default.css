@@ -70,8 +70,8 @@ body {
     background-color: hsl(from var(--accent) h s calc(l * 1.25) / 20%);
 }
 
-.layout.admin > .page-content.admin > .ticket-container {
-    border-bottom: 1.5px solid hsl(from var(--border-color) h s calc(l * 1));
+.layout.admin > .page-content.admin{
+    background-color: hsl(from var(--main) h s calc(l * 0.75));
 }
 
 .layout.admin > .page-content.admin > .ticket-container > .header > .info {
@@ -82,4 +82,53 @@ body {
 }
 .layout.admin > .page-content.admin > .ticket-container > .header {
     background-color: hsl(from var(--main) h s calc(l * 1.25));
+    border-bottom: 1.5px solid hsl(from var(--border-color) h s calc(l * 1));
+}
+
+.layout.admin > .page-content.admin > .ticket-container > .ticket-footer {
+    background-color: hsl(from var(--main) h s calc(l * 1.25));
+    border-top: 1.5px solid hsl(from var(--border-color) h s calc(l * 1));
+}
+
+.layout.admin > .page-content.admin > .ticket-container > .header > .meta > span.status,
+.layout.admin > .page-content.admin > .ticket-container > .header > .meta > span.id,
+.layout.admin > .page-content.admin > .ticket-container > .header > .meta > span.timestamp{
+    border: 1px solid hsl(from var(--border-color) h s calc(l * 1));
+    background-color: hsl(from var(--border-color) h s calc(l * 1) / 20%);
+}
+
+.ql-toolbar {
+    background: hsl(from var(--main) h s calc(l * 8));
+    border: none;
+}
+
+.layout.admin > .page-content.admin > .ticket-container > .ticket-footer > .editor {
+    border: 1.5px solid var(--border-color-bright) !important;
+}
+
+.ql-formats{
+    padding: 4px;
+    border: 1.5px solid hsl(from var(--main) h s calc(l * 1) / 20%) !important;
+    border-radius: 4px;
+    background-color: hsl(from var(--main) h s calc(l * 8.5)) !important;
+}
+
+.ql-toolbar button {
+    color: hsl(from var(--main) h s calc(l * 1));
+}
+
+.ql-toolbar button:hover {
+    color: hsl(from var(--main) h s calc(l * 1));
+}
+
+.ql-toolbar .ql-stroke {
+    stroke: hsl(from var(--main) h s calc(l * 1));
+}
+
+.ql-toolbar .ql-fill {
+    fill: hsl(from var(--main) h s calc(l * 1));
+}
+
+.ql-editor.ql-blank::before {
+    color: hsl(from var(--main) h s calc(l * 8)) !important;
 }
