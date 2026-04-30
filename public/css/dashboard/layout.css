@@ -30,3 +30,16 @@
     width: fit-content;
     height: 100%;
 }
+
+.layout.admin > .page-content.admin{
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 auto;
+}
+
+.layout.admin > .sidepanel{
+    display: flex;
+    flex-direction: column;
+    width: fit-content;
+    max-width: 100px;
+}

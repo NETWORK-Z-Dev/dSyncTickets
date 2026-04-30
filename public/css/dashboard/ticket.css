@@ -56,3 +56,34 @@
     justify-content: end;
     margin-left: auto;
 }
+
+.layout.admin > .page-content.admin > .ticket-container {
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+}
+
+.layout.admin > .page-content.admin > .ticket-container > .header > .meta > span.status,
+.layout.admin > .page-content.admin > .ticket-container > .header > .meta > span.id,
+.layout.admin > .page-content.admin > .ticket-container > .header > .meta > span.timestamp{
+    padding: 0.25rem;
+    border-radius: 6px;
+    font-size: 12px;
+    font-family: monospace;
+
+    border: 1px solid hsl(from var(--border-color) h s calc(l * 1));
+    background-color: hsl(from var(--border-color) h s calc(l * 1) / 20%);
+}
+.layout.admin > .page-content.admin > .ticket-container > .header > h1.title{
+    margin-bottom: 6px;
+    font-size: 20px;
+}
+.layout.admin > .page-content.admin > .ticket-container > .header > .info {
+    font-size: 12px;
+}
+.layout.admin > .page-content.admin > .ticket-container > .header > .info > p {
+    margin: 0;
+}
+.layout.admin > .page-content.admin > .ticket-container > .header > .info > p .owner {
+    font-weight: bold;
+}

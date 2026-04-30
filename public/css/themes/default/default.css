@@ -69,3 +69,14 @@ body {
 .layout.admin > .list.admin > .entries > .ticket.unread:hover{
     background-color: hsl(from var(--accent) h s calc(l * 1.25) / 20%);
 }
+
+.layout.admin > .page-content.admin > .ticket-container {
+    border-bottom: 1.5px solid hsl(from var(--border-color) h s calc(l * 1));
+}
+
+.layout.admin > .page-content.admin > .ticket-container > .header > .info {
+    color: hsl(from var(--main) h s calc(l * 6));
+}
+.layout.admin > .page-content.admin > .ticket-container > .header > .info >  p span.owner{
+    color: hsl(from var(--main) h s calc(l * 10));
+}
