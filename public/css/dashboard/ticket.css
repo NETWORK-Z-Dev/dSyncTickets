@@ -1,7 +1,7 @@
 .layout.admin > .list.admin > .entries{
     display: flex;
     flex-direction: column;
-
+    overflow: auto;
     gap: 4px;
 }
 
