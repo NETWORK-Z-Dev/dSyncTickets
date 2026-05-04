@@ -91,6 +91,7 @@
 }
 .layout.admin > .page-content.admin > .ticket-container > .header > h1.title{
     margin-bottom: 0;
+    font-size: 20px;
 }
 
 .layout.admin > .page-content.admin > .ticket-container > .ticket-footer{
@@ -101,9 +102,15 @@
     padding-right: 1rem;
     padding-top: 1rem;
     padding-bottom: 1rem;
-
     margin-top: auto;
+}
 
+.layout.admin > .page-content.admin > .ticket-container > .ticket-footer > .editor{
+    border-radius: 0.5rem;
+    overflow: hidden;
+}
+.layout.admin > .page-content.admin > .ticket-container > .ticket-footer > .editor .ql-editor{
+    max-height: 250px;
 }
 .layout.admin > .page-content.admin > .ticket-container > .ticket-footer > .top-actions{
     display: flex;
@@ -135,6 +142,7 @@
     margin-left: -1rem;
     margin-right: -1rem;
     padding: 1rem;
+    overflow: auto;
 }
 
 /* ticket messages */
