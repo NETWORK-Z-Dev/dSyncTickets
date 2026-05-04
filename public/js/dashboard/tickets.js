@@ -1,38 +1,323 @@
-function getTicketListContainerElement(){
-    return document.querySelector('.layout.admin .list.admin') ?? null;
+function getTicketListContainerElement() {
+    return document.querySelector('.layout.admin') ?? null;
 }
 
-function getTicketListElement(){
+function getTicketListElement() {
     return getTicketListContainerElement()?.querySelector('.entries') ?? null;
 }
 
-function getTicketListTitleElement(){
+function getTicketListTitleElement() {
     return getTicketListContainerElement()?.querySelector('.title') ?? null;
 }
 
-function getTicketListSubTitleElement(){
+function getTicketListSubTitleElement() {
     return getTicketListContainerElement()?.querySelector('.subtitle') ?? null;
 }
 
-function setTicketListTitle(text){
-    if(!text) throw new Error("no title supplied");
-    if(!getTicketListTitleElement()) throw new Error("no title element found");
+function setTicketListTitle(text) {
+    if (!text) throw new Error("no title supplied");
+    if (!getTicketListTitleElement()) throw new Error("no title element found");
 
     getTicketListTitleElement().innerText = text;
 }
 
-function setTicketListSubTitle(text){
-    if(!text) throw new Error("no title supplied");
-    if(!getTicketListSubTitleElement()) throw new Error("no subtitle element found");
+function setTicketListSubTitle(text) {
+    if (!text) throw new Error("no title supplied");
+    if (!getTicketListSubTitleElement()) throw new Error("no subtitle element found");
 
     getTicketListSubTitleElement().innerText = text;
 }
 
-async function displayTicket(ticket){
-    if(!ticket) throw new Error("no ticket supplied");
-    if(!getDashboardContentElement()) throw new Error("no content element found");
+async function displayTicketTable(filter = null) {
+    if (!getDashboardContentElement()) throw new Error("no content element found");
 
-    console.log(ticket)
+    let tickets = [
+        {
+            id: 12334,
+            title: "Reset Email Password",
+            creator: {
+                id: 123456789012,
+                foa: "Herr",
+                first_name: "Max",
+                last_name: "Mustermann",
+                icon: null,
+                company: {},
+                contact: {
+                    email: "max.mustermann@email.com"
+                }
+            },
+            created: new Date().getTime(),
+            status: "unassigned",
+            assignee: 32,
+            unread: false,
+        },
+        {
+            id: 67890,
+            title: "Account Login not working",
+            creator: {
+                id: 123456789013,
+                foa: "Herr",
+                first_name: "Oompa",
+                last_name: "Loompa",
+                icon: null,
+                company: {},
+                contact: {
+                    email: "oompa@willywonka.com"
+                }
+            },
+            created: new Date().getTime(),
+            assignee: 32,
+            status: "unassigned",
+            unread: true,
+        }
+    ]
+
+    getDashboardContentElement().innerHTML = `
+        <h1>Tickets</h1>
+        
+         <div class="ticket-filters">                           
+                <div>
+                    <select id="status">
+                        <option value="-1">None</option>
+                        <option value="1">unassigned</option>
+                        <option value="1">Assigned</option>
+                        <option value="1">Closed</option>
+                        <option value="1">Resolved</option>
+                    </select>
+                    <label for="status">Filter by status</label>
+                </div>
+                
+                   <div>
+                    <select id="assignee">
+                        <option value="-1">None</option>
+                        <option value="1">Martin</option>
+                        <option value="2">Rick</option>
+                        <option value="3">Willy</option>
+                        <option value="4">Morty</option>
+                    </select>
+                    <label for="status">Filter by assignee</label>
+                </div>
+                
+                <div>
+                    <input type="checkbox" id="closed-tickets" name="closed-tickets">
+                    <label for="closed-tickets">Show closed tickets</label>
+                </div>
+                
+                <div>
+                    <input type="text" id="subject" name="subject">
+                    <label for="subject">Search by subject</label>
+                </div>
+            </div>
+            
+        <div class="ticket-wrapper">
+            <table class="tickets">
+                <tr>
+                    <th>ID</th>
+                    <th>Creator</th>
+                    <th>Subject</th>
+                    <th>Status</th>                    
+                    <th>Assignee</th>
+                    <th>Created</th>
+                </th>
+            </table>  
+        </div>          
+    `;
+
+    let ticketLisElement = getDashboardContentElement()?.querySelector('.tickets') ?? null;
+    if (!ticketLisElement) throw new Error("No ticket element found");
+
+    for (let ticket of tickets) {
+        console.log(ticket)
+
+        let creator = ticket.creator;
+        creator.fullname = `${creator.foa} ${creator.first_name} ${creator.last_name}`;
+
+        let ticketElement = document.createElement("tr");
+        ticketElement.classList.add("ticket");
+
+        // if unread mark it as such
+        if (ticket?.unread === true) ticketElement.classList.add("unread");
+
+        ticketElement.setAttribute("data-id", ticket.id);
+        ticketElement.innerHTML =
+            `
+
+                <td>${ticket.id}</td>
+                
+                <td>
+                    ${creator.fullname}
+                </td>
+                
+                <td>${ticket.title}</td>
+                
+                
+                <td>${ticket.status}</td>
+                
+                
+                <td>${ticket.assignee}</td>
+                
+                <td>
+                    <span class="timestamp">
+                        ${new Date(ticket.created).toLocaleString(undefined, {
+                            weekday: 'short',
+                            month: 'numeric',
+                            year: 'numeric',
+                            day: 'numeric',
+                            hour: 'numeric',
+                            minute: 'numeric',
+                        })}
+                    </span>
+                </td>
+            `;
+
+        ticketElement.onclick = async () => {
+            await displayTicket(ticket)
+
+            // mark ticket or select it to be more specific
+        }
+
+        ticketLisElement.appendChild(ticketElement);
+    }
+}
+
+async function renderTicketMessages(ticket, element){
+    if(!ticket) throw new Error("No ticket found");
+    if(!element) throw new Error("No element found");
+    if(!ticket?.creator) throw new Error("No Creator found in ticket?");
+
+    let messages = [
+        {
+            id: -1,
+            creator: -1,
+            message: "Ticket created",
+            timestamp: 1777924310298,
+        },
+        {
+            id: 1234,
+            creator: {
+                id: 123456789013,
+                foa: "Herr",
+                first_name: "Oompa",
+                last_name: "Loompa",
+                icon: null,
+                company: {},
+                contact: {
+                    email: "oompa@willywonka.com"
+                }
+            },
+            message: "Can you reset my password please?",
+            timestamp: 1777924310299,
+        },
+        {
+            id: -1,
+            creator: -1,
+            message: "Max Mustermann assigned the ticket to themselves",
+            timestamp: 1777924310310,
+        },
+        {
+            id: 5678,
+            creator: {
+                id: 123456789012,
+                foa: "Herr",
+                first_name: "Max",
+                last_name: "Mustermann",
+                icon: null,
+                company: {},
+                contact: {
+                    email: "max.mustermann@email.com"
+                }
+            },
+            message: "which email",
+            timestamp: 1777924310399,
+        },
+        {
+            id: 1234,
+            message: "oompa@willywonka.com",
+            creator: {
+                id: 123456789013,
+                foa: "Herr",
+                first_name: "Oompa",
+                last_name: "Loompa",
+                icon: null,
+                company: {},
+                contact: {
+                    email: "oompa@willywonka.com"
+                }
+            },
+            timestamp: 1777924310499,
+        },
+    ]
+
+    let sortedMessages = messages.sort((a, b) => a.timestamp - b.timestamp);
+
+    for(let message of sortedMessages){
+        let isSystem = message?.id === -1
+        let isMine = message.creator.id === 123456789012;
+
+        let creator = message.creator;
+        let messageCode = null;
+
+        // set some dummy data first or load config data
+        if(isSystem){
+            creator = {
+                first_name: "System", // or display name setting
+                second_name: "",
+                contact: {
+                    email: "system@domain.com" // also a setting soon
+                }
+            }
+        }
+
+        // lets set the full display name afterwards
+        creator.fullname = `${creator.first_name} ${creator.last_name}`;
+        let firstLetterName = creator?.first_name ? creator?.first_name[0] : null;
+        let lastLetterName = creator?.last_name ? creator?.last_name[0] : null;
+        let nameColor = letterColor(`${firstLetterName}${lastLetterName}`);
+
+        // then create HTML lol
+        if(isSystem){
+            messageCode = `
+                <div class="message-container system"><hr>
+                    <p>${message.message}</p>
+                </div>
+            `
+        }
+        else if(!isSystem){
+            messageCode = `            
+                <div class="message-container ${isMine ? "mine" : ""}">
+                    ${isMine === false ? `<div class="icon" style="${creator.icon ? "" : `background-color: ${nameColor}`}">${creator.icon ? "" : `${firstLetterName ?? "???"}${lastLetterName ?? ""}`}</div>` : ""}
+                    <div class="content ${isMine ? "mine" : ""}">
+                        <div class="meta">
+                            ${creator?.fullname} &bull;
+                            ${new Date(ticket.created).toLocaleString(undefined, {
+                                weekday: 'short',
+                                year: 'numeric',
+                                month: 'numeric',
+                                day: 'numeric',
+                                hour: 'numeric',
+                                minute: 'numeric',
+                            })}
+                        </div>
+                        <div class="message">
+                            ${message.message}
+                        </div>
+                    </div>
+                    ${isMine === true ? `<div class="icon" style="${creator.icon ? "" : `background-color: ${nameColor}`}">${creator.icon ? "" : `${firstLetterName ?? "???"}${lastLetterName ?? ""}`}</div>` : ""}
+                </div>
+            `
+        }
+
+        element.insertAdjacentHTML("beforeend", messageCode);
+    }
+
+}
+
+async function displayTicket(ticket) {
+    if (!ticket) throw new Error("no ticket supplied");
+    if (!getDashboardContentElement()) throw new Error("no content element found");
+
+    let creator = ticket.creator;
+    creator.fullname = `${creator.foa} ${creator.first_name} ${creator.last_name}`;
 
     getDashboardContentElement().innerHTML =
         `
@@ -56,17 +341,22 @@ async function displayTicket(ticket){
                 
                 <h1 class="title">${ticket?.title ?? "No title"}</h1>
                 <div class="info">
-                    <p>Ticket created by <span class="owner">${ticket.creator.first_name} ${ticket.creator.last_name}</span> &lt;${ticket.creator.contact.email}&gt; </p>
+                    <p>Ticket created by <span class="owner">${creator.fullname}</span> &lt;${ticket.creator.contact.email ?? "??"}&gt; </p>
                 </div>
             </div>
             
-            <div class="ticket-content">
-            
-            </div>
+            <div class="ticket-content"></div>
             
             <div class="ticket-footer">
                 <div class="top-actions">
-                
+                    <div class="action" data-action="public">
+                        ${Icon.display("message")}
+                        Public
+                    </div>
+                    <div class="action internal" data-action="internal">
+                        ${Icon.display("message")}
+                        Internal
+                    </div>
                 </div>
                 
                 <div class="editor"></div>
@@ -78,6 +368,8 @@ async function displayTicket(ticket){
         </div>
         `
 
+    let messageContainer = getDashboardContentElement().querySelector('.ticket-container > .ticket-content');
+    renderTicketMessages(ticket, messageContainer);
 
     const editor = new RichEditor({
         selector: ".layout.admin > .page-content.admin > .ticket-container > .ticket-footer > .editor",
@@ -93,94 +385,4 @@ async function displayTicket(ticket){
             console.log("sending ", html)
         }
     });
-
-}
-
-
-async function displayTicketsInList(){
-    if(!getTicketListElement()) throw new Error("Couldnt find ticket list element!");
-
-    let tickets = [
-        {
-            id: 12334,
-            title: "Reset Email Password",
-            creator: {
-                id: 123456789012,
-                first_name: "Max",
-                last_name: "Mustermann",
-                icon: null,
-                company: {},
-                contact: {
-                    email: "max.mustermann@email.com"
-                }
-            },
-            created: new Date().getTime(),
-            status: "unassigned",
-            unread: false,
-        },
-        {
-            id: 67890,
-            title: "Account Login not working",
-            creator: {
-                id: 123456789013,
-                first_name: "Oompa",
-                last_name: "Loompa",
-                icon: null,
-                company: {},
-                contact: {
-                    email: "oompa@willywonka.com"
-                }
-            },
-            created: new Date().getTime(),
-            status: "unassigned",
-            unread: true,
-        }
-    ]
-
-    for(let ticket of tickets){
-        let creator = ticket.creator;
-
-        let ticketElement = document.createElement("div");
-        ticketElement.classList.add("ticket");
-
-        // if unread mark it as such
-        if(ticket.unread === true) ticketElement.classList.add("unread");
-
-        ticketElement.setAttribute("data-id", ticket.id);
-        ticketElement.innerHTML =
-            `
-            <div class="icon">${creator.icon ? "" : `${creator.first_name[0]}${creator.last_name[0]}`}</div>
-            <div class="content">
-                <p class="meta">
-                    ${creator.first_name} ${creator.last_name} 
-                    
-                    <span class="timestamp">
-                        ${new Date(ticket.created).toLocaleString(undefined, {
-                            weekday: 'short',
-                            month: 'numeric',
-                            day: 'numeric',
-                            hour: 'numeric',
-                            minute: 'numeric',
-                        })}
-                    </span>
-                </p>
-                
-                <p>${ticket.title}</p>
-                
-                <p class="footer">
-                    <span class="status">${ticket.status}</span>
-                </p>
-            </div>
-            `;
-
-        ticketElement.onclick = async () => {
-            await displayTicket(ticket)
-
-            // mark ticket or select it to be more specific
-        }
-
-        getTicketListElement().appendChild(ticketElement);
-    }
-
-    setTicketListSubTitle(`${tickets?.length ?? "0"} Tickets`);
 }

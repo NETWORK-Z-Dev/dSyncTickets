@@ -19,7 +19,7 @@ async function displayAdminMenu(){
             text: "Tickets",
             callback: async () => {
                 console.log("load tickets here")
-                displayTicketsInList();
+                displayTicketTable();
             }
         },
         {
@@ -79,7 +79,6 @@ async function displayAdminMenu(){
     }
 
     async function executeItemCallback(item){
-        setTicketListTitle(item.text);
         await item.callback();
     }
 }

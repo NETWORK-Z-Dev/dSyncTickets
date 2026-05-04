@@ -29,15 +29,6 @@ body {
     background-color: hsl(from var(--main) h s calc(l * 1.25));
 }
 
-.layout.admin > .list.admin {
-    border-right: 1px solid var(--border-color);
-    border-left: 1px solid var(--border-color);
-    background-color: hsl(from var(--main) h s calc(l * 1.5));
-}
-.layout.admin > .list.admin > .header {
-    border-bottom: 1.5px solid var(--border-color);
-}
-
 .layout > .navigation.admin > .general-menu > a:hover,
 .layout > .navigation.admin > .admin-menu > a:hover{
     background-color: hsl(from var(--accent) h s calc(l * 1.25) / 40%);
@@ -74,6 +65,9 @@ body {
     background-color: hsl(from var(--main) h s calc(l * 0.75));
 }
 
+.layout.admin > .page-content.admin > .ticket-container {
+    border: 1.5px solid var(--border-color);
+}
 .layout.admin > .page-content.admin > .ticket-container > .header > .info {
     color: hsl(from var(--main) h s calc(l * 6));
 }
@@ -130,5 +124,69 @@ body {
 }
 
 .ql-editor.ql-blank::before {
-    color: hsl(from var(--main) h s calc(l * 8)) !important;
+    color: hsl(from var(--main) h s calc(l * 1)) !important;
+}
+
+.ql-editor{
+    background-color: hsl(from var(--main) h s calc(l * 8) / 80%);
+    color: hsl(from var(--main) h s calc(l * 0.5) / 100%);
+    font-size: 15px;
+}
+
+.layout.admin > .page-content.admin > .ticket-wrapper > .tickets th {
+    background-color: hsl(from var(--main) h s calc(l * 12) / 80%);
+    color: hsl(from var(--main) h s calc(l * 1));
+}
+.layout.admin > .page-content.admin > .ticket-wrapper > .tickets tr:nth-child(odd){background-color: hsl(from var(--main) h s calc(l * 2));}
+.layout.admin > .page-content.admin > .ticket-wrapper > .tickets tr:nth-child(even){background-color: hsl(from var(--main) h s calc(l * 3));}
+.layout.admin > .page-content.admin > .ticket-wrapper > .tickets tr:hover {background-color: hsl(from var(--main) h s calc(l * 4));}
+.layout.admin > .page-content.admin > .ticket-wrapper > .tickets, th, td {
+    border: 1.5px solid var(--border-color);
+}
+.layout.admin > .page-content.admin > .ticket-wrapper {
+    border: 1.5px solid var(--border-color);
+}
+
+/* ticket filters */
+.layout.admin > .page-content.admin > .ticket-filters > div{
+    background-color: hsl(from var(--main) h s calc(l * 12) / 80%);
+    color: hsl(from var(--main) h s calc(l * 1) / 100%);
+    border: 1.5px solid var(--border-color);
+}
+.layout.admin > .page-content.admin > .ticket-filters input,
+.layout.admin > .page-content.admin > .ticket-filters select{
+    border: 1.5px solid hsl(from var(--main) h s calc(l * 1) / 40%);
+}
+
+/* ticket */
+
+.layout.admin > .page-content.admin > .ticket-container > .ticket-footer > .top-actions > .action{
+    border: 1.5px solid hsl(from var(--accent) h s calc(l * 1) / 60%);
+    background-color: hsl(from var(--accent) h s calc(l * 1) / 20%);
+    color: hsl(from var(--accent) h s calc(l * 1) / 80%);
+}
+.layout.admin > .page-content.admin > .ticket-container > .ticket-footer > .top-actions > .action.internal{
+    border: 1.5px solid hsl(from magenta h s calc(l * 1.5) / 60%);
+    background-color: hsl(from purple h s calc(l * 1.5) / 20%);
+    color: hsl(from magenta h s calc(l * 1.5) / 80%);
+}
+.layout.admin > .page-content.admin > .ticket-container > .ticket-content > .message-container > .icon{
+    background-color: hsl(from var(--main) h s calc(l * 2) / 80%);
+    border: 1.5px solid var(--border-color);
+}
+.layout.admin > .page-content.admin > .ticket-container > .ticket-content > .message-container > .content > .message{
+    background-color: hsl(from var(--main) h s calc(l * 1.75) / 100%);
+    border: 1.5px solid var(--border-color);
+}
+
+.layout.admin > .page-content.admin > .ticket-container > .ticket-content > .message-container.system p{
+    color: hsl(from var(--main) h s calc(l * 4) / 100%);
+    background-color: hsl(from var(--main) h s calc(l * 0.75) / 100%);
+}
+.layout.admin > .page-content.admin > .ticket-container > .ticket-content > .message-container.system hr{
+    color: hsl(from var(--main) h s calc(l * 4) / 100%);
+    border :1px solid hsl(from var(--main) h s calc(l * 4) / 100%);
+}
+.layout.admin > .page-content.admin > .ticket-container > .ticket-content > .message-container > .content > .meta {
+    color: hsl(from var(--main) h s calc(l * 4) / 100%);
 }
