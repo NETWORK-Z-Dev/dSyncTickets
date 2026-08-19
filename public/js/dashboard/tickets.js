@@ -28,8 +28,12 @@ function setTicketListSubTitle(text) {
     getTicketListSubTitleElement().innerText = text;
 }
 
-async function displayTicketTable(filter = null) {
-    if (!getDashboardContentElement()) throw new Error("no content element found");
+async function displayTicketTable({
+                                      filter = null,
+    containerElement = getDashboardContentElement()
+                                  } = {}) {
+
+    if(!containerElement) throw new Error("No container supplied");
 
     let tickets = [
         {
@@ -72,7 +76,7 @@ async function displayTicketTable(filter = null) {
         }
     ]
 
-    getDashboardContentElement().innerHTML = `
+    containerElement.innerHTML = `
         <h1>Tickets</h1>
         
          <div class="ticket-filters">                           
@@ -123,7 +127,7 @@ async function displayTicketTable(filter = null) {
         </div>          
     `;
 
-    let ticketLisElement = getDashboardContentElement()?.querySelector('.tickets') ?? null;
+    let ticketLisElement = containerElement?.querySelector('.tickets') ?? null;
     if (!ticketLisElement) throw new Error("No ticket element found");
 
     for (let ticket of tickets) {
@@ -312,14 +316,14 @@ async function renderTicketMessages(ticket, element){
 
 }
 
-async function displayTicket(ticket) {
+async function displayTicket(ticket, renderElement = getDashboardContentElement()) {
     if (!ticket) throw new Error("no ticket supplied");
-    if (!getDashboardContentElement()) throw new Error("no content element found");
+    if (!renderElement) throw new Error("no content element found");
 
     let creator = ticket.creator;
     creator.fullname = `${creator.foa} ${creator.first_name} ${creator.last_name}`;
 
-    getDashboardContentElement().innerHTML =
+    renderElement.innerHTML =
         `
         <div class="ticket-container">
             
@@ -368,7 +372,7 @@ async function displayTicket(ticket) {
         </div>
         `
 
-    let messageContainer = getDashboardContentElement().querySelector('.ticket-container > .ticket-content');
+    let messageContainer = renderElement.querySelector('.ticket-container > .ticket-content');
     renderTicketMessages(ticket, messageContainer);
 
     const editor = new RichEditor({
