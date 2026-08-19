@@ -1,0 +1,8 @@
+{
+    "packages": {
+        "@hackthedev/express-starter": "1.0.6",
+        "@hackthedev/frontend-libs": "1.1.5",
+        "@hackthedev/dsync-sql": "1.0.10",
+        "@hackthedev/terminal-logger": "1.0.1"
+    }
+}

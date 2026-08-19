@@ -1,6 +1,7 @@
 import ExpressStarter from "@hackthedev/express-starter"
 import FrontendLibs from "@hackthedev/frontend-libs";
 import * as path from "node:path";
+import {initDatabase} from "./db.mjs";
 
 let libDir = path.join(path.resolve(), "public", "js", "libs");
 
@@ -8,6 +9,7 @@ export let starter = new ExpressStarter()
 
 export async function initSoftware(){
     await installFrontendLibs();
+    await initDatabase();
     await setupWebServer()
 }
 
@@ -20,9 +22,8 @@ export async function setupWebServer(){
 
 export async function installFrontendLibs(){
     const results = await FrontendLibs.installMultiple([
-        { package: '@hackthedev/icons@1.0.5', path: libDir },
-        { package: '@hackthedev/rich-editor', path: libDir },
-        { package: '@hackthedev/rich-editor', path: libDir },
+        { package: '@hackthedev/icons@latest', path: libDir },
+        { package: '@hackthedev/rich-editor@latest', path: libDir },
     ]);
 
     results.forEach((r) => {
