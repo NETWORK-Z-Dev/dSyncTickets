@@ -1,15 +1,32 @@
 function getNavElement(){
-    return document.querySelector('.layout.admin .navigation.admin');
+    return document.querySelector('.layout .navigation');
 }
 
 function getNavAdminMenu(){
     return getNavElement()?.querySelector('.admin-menu') ?? null;
 }
 
-async function displayAdminMenu(){
-    if(!getNavAdminMenu()) throw new Error('Admin menu element was not found');
+async function getNavHTML(){
+    return `
+     <div class="header">
+            <div class="logo"></div>
+            <h1 class="text">Tickets</h1>
+        </div>
 
+        <div class="user-info">
+            <h1 class="name">Willy W.</h1>
+            <h2 class="department">Technik</h2>
+        </div>
+
+        <div class="admin-menu"></div>
+`
+}
+
+async function displayAdminMenu(){
+    getNavElement().innerHTML = await getNavHTML()
     getNavAdminMenu().innerHTML = "";
+
+    if(!getNavAdminMenu()) throw new Error('Admin menu element was not found');
 
     // fetch menu items here later. this is dummy text for now to build the ui.
     // also would be nice to add permission checks here on what items to show

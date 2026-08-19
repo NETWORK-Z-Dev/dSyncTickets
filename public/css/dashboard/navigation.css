@@ -1,4 +1,4 @@
-.layout > .navigation.admin > .user-info{
+.layout > .navigation > .user-info{
     display: flex;
     flex-direction: column;
 
@@ -8,27 +8,27 @@
     margin: 1rem -1rem 0 -1rem;
     padding:1rem;
 }
-.layout > .navigation.admin > .user-info > h1.name{
+.layout > .navigation > .user-info > h1.name{
     margin: 0;
     font-size: 20px;
 }
-.layout > .navigation.admin > .user-info > h2.department{
+.layout > .navigation > .user-info > h2.department{
     margin: 0;
     font-size: 16px;
 }
 
-.layout > .navigation.admin > .header > h1.text{
+.layout > .navigation > .header > h1.text{
     margin: 0;
 }
 
-.layout > .navigation.admin > .general-menu,
-.layout > .navigation.admin > .admin-menu {
+.layout > .navigation > .general-menu,
+.layout > .navigation > .admin-menu {
     display: flex;
     flex-direction: column;
     margin: 1rem -1rem 1rem -1rem;
 }
-.layout > .navigation.admin > .general-menu > a,
-.layout > .navigation.admin > .admin-menu > a{
+.layout > .navigation > .general-menu > a,
+.layout > .navigation > .admin-menu > a{
     display: flex;
     gap: 1rem;
     align-items: center;
@@ -41,13 +41,13 @@
     cursor: pointer;
 }
 
-.layout > .navigation.admin > .general-menu > a.active,
-.layout > .navigation.admin > .admin-menu > a.active{
+.layout > .navigation > .general-menu > a.active,
+.layout > .navigation > .admin-menu > a.active{
     padding-left: 20px;
 }
 
-.layout > .navigation.admin > .general-menu > a > svg,
-.layout > .navigation.admin > .admin-menu > a > svg{
+.layout > .navigation > .general-menu > a > svg,
+.layout > .navigation > .admin-menu > a > svg{
     width: 16px;
     height: 16px;
 }
