@@ -66,7 +66,8 @@ select{
 
 .layout.admin > .page-content.admin > .ticket-container > .header {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    gap: 2rem;
 
     margin-left: -1rem;
     margin-right: -1rem;
@@ -74,15 +75,19 @@ select{
     padding-top: 1rem;
     padding-left: 1rem;
     padding-right: 1rem;
+    padding-bottom: 1rem;
 }
-
-.layout.admin > .page-content.admin > .ticket-container > .header > .meta{
+.layout.admin > .page-content.admin > .ticket-container > .header .flex-container {
+    display: flex;
+    flex-direction: column;
+}
+.layout.admin > .page-content.admin > .ticket-container .header .meta{
     display: flex;
     flex-direction: row;
     gap: 0.5rem;
 }
 
-.layout.admin > .page-content.admin > .ticket-container > .header > .meta span{
+.layout.admin > .page-content.admin > .ticket-container .header .meta span{
     display: flex;
     flex-direction: row;
     gap: 1rem;
@@ -92,12 +97,12 @@ select{
     font-family: monospace;
     border-radius: 6px;
 }
-.layout.admin > .page-content.admin > .ticket-container > .header > h1.title{
+.layout.admin > .page-content.admin > .ticket-container .header h1.title{
     margin-bottom: 0;
     font-size: 20px;
 }
 
-.layout.admin > .page-content.admin > .ticket-container > .ticket-footer{
+.layout.admin > .page-content.admin > .ticket-container .ticket-footer{
     margin-left: -1rem;
     margin-right: -1rem;
     margin-bottom: -1rem;
@@ -108,21 +113,21 @@ select{
     margin-top: auto;
 }
 
-.layout.admin > .page-content.admin > .ticket-container > .ticket-footer > .editor{
+.layout.admin > .page-content.admin > .ticket-container .ticket-footer > .editor{
     border-radius: 0.5rem;
     overflow: hidden;
 }
-.layout.admin > .page-content.admin > .ticket-container > .ticket-footer > .editor .ql-editor{
+.layout.admin > .page-content.admin > .ticket-container .ticket-footer > .editor .ql-editor{
     max-height: 250px;
 }
-.layout.admin > .page-content.admin > .ticket-container > .ticket-footer > .top-actions{
+.layout.admin > .page-content.admin > .ticket-container .ticket-footer > .top-actions{
     display: flex;
     flex-direction: row;
     gap: 1rem;
     margin-bottom: 1rem;
     font-size: 14px;
 }
-.layout.admin > .page-content.admin > .ticket-container > .ticket-footer > .top-actions > .action{
+.layout.admin > .page-content.admin > .ticket-container .ticket-footer > .top-actions > .action{
     display: flex;
     flex-direction: row;
     gap: 0.5rem;
@@ -131,12 +136,12 @@ select{
     border-radius: 6px;
     cursor: pointer;
 }
-.layout.admin > .page-content.admin > .ticket-container > .ticket-footer > .top-actions > .action > svg{
+.layout.admin > .page-content.admin > .ticket-container .ticket-footer > .top-actions > .action > svg{
     width: 18px;
     height: 18px;
 }
 
-.layout.admin > .page-content.admin > .ticket-container > .ticket-content {
+.layout.admin > .page-content.admin > .ticket-container .ticket-content {
     display: flex;
     flex-direction: column;
     gap: 1rem;
@@ -149,16 +154,16 @@ select{
 }
 
 /* ticket messages */
-.layout.admin > .page-content.admin > .ticket-container > .ticket-content > .message-container{
+.layout.admin > .page-content.admin > .ticket-container .ticket-content > .message-container{
     display: flex;
     flex-direction: row;
     gap: 0.75rem;
 }
 
-.layout.admin > .page-content.admin > .ticket-container > .ticket-content > .message-container.mine{
+.layout.admin > .page-content.admin > .ticket-container .ticket-content > .message-container.mine{
     justify-content: end;
 }
-.layout.admin > .page-content.admin > .ticket-container > .ticket-content > .message-container > .icon{
+.layout.admin > .page-content.admin > .ticket-container .ticket-content > .message-container > .icon{
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -175,15 +180,15 @@ select{
     background-position: center;
     background-size: cover;
 }
-.layout.admin > .page-content.admin > .ticket-container > .ticket-content > .message-container > .content{
+.layout.admin > .page-content.admin > .ticket-container .ticket-content > .message-container > .content{
     display: flex;
     flex-direction: column;
 }
-.layout.admin > .page-content.admin > .ticket-container > .ticket-content > .message-container > .content.mine{
+.layout.admin > .page-content.admin > .ticket-container .ticket-content > .message-container > .content.mine{
     justify-content: end;
     align-items: end;
 }
-.layout.admin > .page-content.admin > .ticket-container > .ticket-content > .message-container > .content > .message{
+.layout.admin > .page-content.admin > .ticket-container .ticket-content > .message-container > .content > .message{
     padding: 0.5rem 0.75rem;
     margin: 0.5rem 0;
     border-radius: 8px;
@@ -191,7 +196,7 @@ select{
 }
 
 /* system message */
-.layout.admin > .page-content.admin > .ticket-container > .ticket-content > .message-container.system {
+.layout.admin > .page-content.admin > .ticket-container .ticket-content > .message-container.system {
     position: relative;
     display: flex;
     flex-direction: column;
@@ -201,12 +206,12 @@ select{
     align-self: center;
     align-content: center;
 }
-.layout.admin > .page-content.admin > .ticket-container > .ticket-content > .message-container.system p {
+.layout.admin > .page-content.admin > .ticket-container .ticket-content > .message-container.system p {
     z-index: 2;
     font-size: 12px;
     padding: 0 8px;
 }
-.layout.admin > .page-content.admin > .ticket-container > .ticket-content > .message-container.system hr{
+.layout.admin > .page-content.admin > .ticket-container .ticket-content > .message-container.system hr{
     position: absolute;
     margin-bottom: 0.65rem;
     width: 100%;

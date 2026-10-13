@@ -38,7 +38,7 @@ async function displayTicketTable({
     let tickets = [
         {
             id: 12334,
-            title: "Reset Email Password",
+            title: "Reset Email Password of Mail Account because password expired",
             creator: {
                 id: 123456789012,
                 foa: "Herr",
@@ -329,27 +329,35 @@ async function displayTicket(ticket, renderElement = getDashboardContentElement(
 
     renderElement.innerHTML =
         `
-        <div class="ticket-container">
-            
+        <div class="ticket-container">            
             <div class="header">
-                <div class="meta">
-                    <span class="status">${ticket.status}</span>
-                    <span class="id">#${ticket.id}</span>
-                    <span class="timestamp">
-                    ${new Date(ticket.created).toLocaleString(undefined, {
-                        weekday: 'long',
-                        year: 'numeric',
-                        month: 'numeric',
-                        day: 'numeric',
-                        hour: 'numeric',
-                        minute: 'numeric',
-                    })}
-                    </span>
-                </div>
+                <div class="flex-container">
+                    <div class="meta">
+                        <span class="status">${ticket.status}</span>
+                        <span class="id">#${ticket.id}</span>
+                        <span class="timestamp">
+                        ${new Date(ticket.created).toLocaleString(undefined, {
+                            weekday: 'long',
+                            year: 'numeric',
+                            month: 'numeric',
+                            day: 'numeric',
+                            hour: 'numeric',
+                            minute: 'numeric',
+                        })}
+                        </span>
+                    </div>
                 
-                <h1 class="title">${ticket?.title ?? "No title"}</h1>
-                <div class="info">
-                    <p>Ticket created by <span class="owner">${creator.fullname}</span> &lt;${ticket.creator.contact.email ?? "??"}&gt; </p>
+                    <h1 class="title">${ticket?.title ?? "No title"}</h1>
+                    <div class="info">
+                        <p>Ticket created by <span class="owner">${creator.fullname}</span> &lt;${ticket.creator.contact.email ?? "??"}&gt; </p>
+                    </div>
+                </div>
+
+                <div>
+                    <details>
+                        <summary>Ticket Information</summary>
+                        ${getTicketHeaderHTML()}
+                    </details>
                 </div>
             </div>
             
