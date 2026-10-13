@@ -114,7 +114,7 @@ async function displayTicketTable({
         </div>
 
         <div class="ticket-actions">
-            <button class="success">${Icon.display("add")}Create Ticket</button>
+            <button class="success" onclick="createTicketPrompt()">${Icon.display("add")}Create Ticket</button>
         </div>
             
         <div class="ticket-wrapper">

@@ -1,0 +1,45 @@
+.ticket-details{
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.ticket-details hr {
+    width: 100%;
+}
+
+.ticket-header,
+.ticket-body{
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+}
+
+.ticket-header input,
+.ticket-header select,
+.ticket-body input,
+.ticket-body select{
+    font-size: 12px;
+}
+
+.ticket-header .input-group,
+.ticket-body .input-group{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    background-color: #575757;
+
+    padding: 0.75rem;
+    border-radius: 0.5rem;
+
+    flex: 1 1 auto;
+    justify-content: start;
+    height: fit-content;
+    font-size: 14px;
+}
+
+.ticket-header .input-group .group-field,
+.ticket-body .input-group .group-field{
+    display: flex;
+    flex-direction: column;
+}

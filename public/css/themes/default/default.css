@@ -153,8 +153,9 @@ body {
     color: hsl(from var(--main) h s calc(l * 1) / 100%);
     border: 1.5px solid var(--border-color);
 }
-.layout.admin > .page-content.admin > .ticket-filters input,
-.layout.admin > .page-content.admin > .ticket-filters select{
+input,
+textarea,
+select{
     border: 1.5px solid hsl(from var(--main) h s calc(l * 1) / 40%);
 }
 

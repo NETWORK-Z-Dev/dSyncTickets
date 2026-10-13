@@ -56,6 +56,7 @@ export async function installFrontendLibs(){
     const results = await FrontendLibs.installMultiple([
         { package: '@hackthedev/icons@latest', path: libDir },
         { package: '@hackthedev/rich-editor@latest', path: libDir },
+        { package: '@hackthedev/prompts@latest', path: libDir },
     ]);
 
     results.forEach((r) => {

@@ -17,12 +17,15 @@
     padding: 0.25rem 0.5rem;
     border-radius: 1rem;
 }
-.layout.admin > .page-content.admin > .ticket-filters input,
-.layout.admin > .page-content.admin > .ticket-filters select{
+input,
+textarea,
+select{
     border-radius: 0.5rem;
     outline: none;
     font-size: 14px;
-    padding: 2px;
+    padding: 0.15rem 0.3rem;
+    background-color: #e3e3e3 !important;
+    color: black !important;
 }
 
 .layout.admin > .page-content.admin > .ticket-wrapper > .tickets{
@@ -219,9 +222,10 @@
     display: flex;
     gap: 0.5rem;
     align-items: center;
-    padding: 0.25rem;
+    padding: 0.55rem 0.5rem;
+    font-weight: bold;
 }
 .layout.admin > .page-content.admin > .ticket-actions svg{
-    width: 18px;
-    height: 18px;
+    width: 16px;
+    height: 16px;
 }
