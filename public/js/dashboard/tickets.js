@@ -80,38 +80,42 @@ async function displayTicketTable({
         <h1>Tickets</h1>
         
          <div class="ticket-filters">                           
-                <div>
-                    <select id="status">
-                        <option value="-1">None</option>
-                        <option value="1">unassigned</option>
-                        <option value="1">Assigned</option>
-                        <option value="1">Closed</option>
-                        <option value="1">Resolved</option>
-                    </select>
-                    <label for="status">Filter by status</label>
-                </div>
-                
-                   <div>
-                    <select id="assignee">
-                        <option value="-1">None</option>
-                        <option value="1">Martin</option>
-                        <option value="2">Rick</option>
-                        <option value="3">Willy</option>
-                        <option value="4">Morty</option>
-                    </select>
-                    <label for="status">Filter by assignee</label>
-                </div>
-                
-                <div>
-                    <input type="checkbox" id="closed-tickets" name="closed-tickets">
-                    <label for="closed-tickets">Show closed tickets</label>
-                </div>
-                
-                <div>
-                    <input type="text" id="subject" name="subject">
-                    <label for="subject">Search by subject</label>
-                </div>
+            <div>
+                <select id="status">
+                    <option value="-1">None</option>
+                    <option value="1">unassigned</option>
+                    <option value="1">Assigned</option>
+                    <option value="1">Closed</option>
+                    <option value="1">Resolved</option>
+                </select>
+                <label for="status">Filter by status</label>
             </div>
+            
+                <div>
+                <select id="assignee">
+                    <option value="-1">None</option>
+                    <option value="1">Martin</option>
+                    <option value="2">Rick</option>
+                    <option value="3">Willy</option>
+                    <option value="4">Morty</option>
+                </select>
+                <label for="status">Filter by assignee</label>
+            </div>
+            
+            <div>
+                <input type="checkbox" id="closed-tickets" name="closed-tickets">
+                <label for="closed-tickets">Show closed tickets</label>
+            </div>
+            
+            <div>
+                <input type="text" id="subject" name="subject">
+                <label for="subject">Search by subject</label>
+            </div>
+        </div>
+
+        <div class="ticket-actions">
+            <button class="success">${Icon.display("add")}Create Ticket</button>
+        </div>
             
         <div class="ticket-wrapper">
             <table class="tickets">

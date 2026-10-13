@@ -15,3 +15,14 @@ body {
     font-family: 'Roboto', sans-serif;
     overflow-anchor: none;
 }
+
+button{
+    cursor: pointer;
+}
+
+button.success{
+    color: white;
+    background-color: mediumseagreen;
+    border: none;
+    border-radius: 0.25rem;
+}
