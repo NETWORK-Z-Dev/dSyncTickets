@@ -19,9 +19,7 @@
 }
 
 .ticket-header,
-.ticket-header .input-group,
-.ticket-header input,
-.ticket-header select{
+.ticket-header .input-group{
     width: fit-content !important;
 }
 

@@ -353,8 +353,8 @@ async function displayTicket(ticket, renderElement = getDashboardContentElement(
                     </div>
                 </div>
 
-                <div>
-                    <details>
+                <div class="ticket-header-embed">
+                    <details style="user-select: none;cursor: pointer;">
                         <summary>Ticket Information</summary>
                         ${getTicketHeaderHTML()}
                     </details>

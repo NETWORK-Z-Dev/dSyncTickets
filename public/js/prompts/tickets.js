@@ -6,30 +6,9 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
 function getTicketHeaderHTML(){
     return ` 
-        <div class="ticket-header">
-             <div class="input-group">
-                <div class="group-field">
-                    <label>Creator</label>
-                    <input type="text" list="options" placeholder="Suchen...">
-                    <datalist id="options">
-                        <option value="Apple">
-                        <option value="Banana">
-                        <option value="Orange">
-                    </datalist>
-                </div>
-                
-                <div class="group-field">
-                    <label>Email</label>
-                    <input type="text" placeholder="Suchen...">
-                </div>
-                
-                <div class="group-field">
-                    <label>Phone</label>
-                    <input type="text" placeholder="Suchen...">
-                </div>
-             </div>
-            
+        <div class="ticket-header">                       
             ${getBusinessTicketHeaderGroup()}                    
+            ${getBusinessDevicesHeaderGroup()}                    
             ${getTicketClaimHeaderGroup()}
             ${getTicketStats()}
         </div>`
@@ -56,6 +35,32 @@ function getTicketInfoHTML(){
                 </div>
             
             </div>
+        `
+}
+
+function getTicketCreatorHTML(){
+    return `            
+             <div class="input-group">
+                <div class="group-field">
+                    <label>Creator</label>
+                    <input type="text" list="options" placeholder="Suchen...">
+                    <datalist id="options">
+                        <option value="Apple">
+                        <option value="Banana">
+                        <option value="Orange">
+                    </datalist>
+                </div>
+                
+                <div class="group-field">
+                    <label>Email</label>
+                    <input type="text" placeholder="Suchen...">
+                </div>
+                
+                <div class="group-field">
+                    <label>Phone</label>
+                    <input type="text" placeholder="Suchen...">
+                </div>
+             </div>
         `
 }
 
@@ -131,6 +136,21 @@ function getBusinessTicketHeaderGroup() {
             <div class="group-field">
                 <label>Phone</label>
                 <input type="text" placeholder="Suchen...">
+            </div>
+        </div>
+    `
+}
+function getBusinessDevicesHeaderGroup() {
+    return `
+        <div class="input-group">
+            <div class="group-field">
+                <label>Affected device(s)</label>
+                <input type="text" list="options" placeholder="Suchen...">
+            </div>
+            
+            <div class="group-field">
+                <label>Affected user(s)</label>
+                <input type="text" list="options" placeholder="Suchen...">
             </div>
         </div>
     `

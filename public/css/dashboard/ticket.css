@@ -81,6 +81,11 @@ select{
     display: flex;
     flex-direction: column;
 }
+.layout.admin > .page-content.admin > .ticket-container .ticket-header-embed{
+    display: flex;
+    margin-left: auto;
+    margin-right: 0;
+}
 .layout.admin > .page-content.admin > .ticket-container .header .meta{
     display: flex;
     flex-direction: row;
